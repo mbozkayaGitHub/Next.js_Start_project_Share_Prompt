@@ -12,14 +12,11 @@ const Nav = () => {
 
   useEffect(() => {
     const setUpProviders = async () => {
-     
       const response = await getProviders();
       setProviders(response);
-    }
+    };
     setUpProviders();
-    
-  
-  }, [])
+  }, []);
 
   return (
     <nav className="flex-between w-full mb-16 pt-3">
@@ -42,14 +39,13 @@ const Nav = () => {
               Create Post
             </Link>
 
-            <button type='button' onClick={signOut} className='outline_btn'>
+            <button type="button" onClick={signOut} className="outline_btn">
               Sign Out
             </button>
 
-
             <Link href="/profile">
               <Image
-                src="/assets/images/logo.svg"
+                src={session?.user.image}
                 width={37}
                 height={37}
                 className="rounded-full"
@@ -62,12 +58,12 @@ const Nav = () => {
             {providers &&
               Object.values(providers).map((provider) => (
                 <button
-                  type='button'
+                  type="button"
                   key={provider.name}
                   onClick={() => {
                     signIn(provider.id);
                   }}
-                  className='black_btn'
+                  className="black_btn"
                 >
                   Sign in
                 </button>
@@ -80,7 +76,7 @@ const Nav = () => {
         {session?.user ? (
           <div className="flex">
             <Image
-              src="/assets/images/logo.svg"
+              src={session?.user.image}
               width={37}
               height={37}
               className="rounded-full"
