@@ -12,7 +12,7 @@ const CreatePrompt = () => {
     tag: "",
   });
   const createPrompt = async (e) => {
-
+          e.preventDefault()
   }
   const [submitting, setSubmitting] = useState(false);
   
